@@ -1,0 +1,115 @@
+ <!-- 
+    1. Сделать собственные примеры методов применяемых для массивов.
+
+    2. Создать функцию для нахождения минимального и максимального элемента массива getMinAndMax(array).
+     Результат должен выводиться в консоль.
+
+    3. Определить элементы массива и вывести их значения, индексы которых лежит в указанном пределе. Предел вводит пользователь.
+
+    4. Отсортировать массив на 10 чисел в порядке возростания. Значения принимаются от пользователя. Сортировка осушествляется методом sort().
+    
+    5. Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.
+
+    6. Необходимо получить предпоследний элемент из массива month и вывести его на экран. 
+    var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+
+    7. Создать два произвольных массива: один массив - любимая спортивная команда / модели автомобилей / города, во втором - количество игроков в команде / объем двигателя / количество жителей в городе. Объединить данные из двух массивов и вывести их в одну строку.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //task1 join
+    var arrTestJoin = [1, 2, 3, 4, "str1", "str2"];
+    
+    document.write(arrTestJoin);
+    var changed_array = arrTestJoin.join(" / ");
+    document.write("<br/><br />");
+    document.write(changed_array);
+    changed_array = arrTestJoin.join("<br />");
+    document.write("<br/><br />");
+    document.write(changed_array);
+
+    //task1 concat
+    var arrTestConcat = [1, 2, 3, 4, "str1", "str2"];
+
+    var testConcat = arrTestConcat.concat("str3", 5);
+    document.write(testConcat);
+
+    //task1 reverse
+    var arrTestReverse = [1, 2, 3, 4, "str1", "str2"];
+
+    var testReverse = arrTestReverse.reverse();
+    document.write(testReverse);
+
+    //task1 splice
+    var arrTestSplice = [1, 2, 3, 4, "str1", "str2"];
+
+    var testSplice = arrTestSplice.splice(1, 0, "Toyota", "Mazda", "Akura");
+    document.write(testSplice);
+
+
+    //task2 write method
+    function getMinAndMax(array){
+      var minValue = Infinity;
+      var maxValue = -Infinity;
+      for (const elem of array) {
+        if(maxValue<elem){
+          maxValue=elem;
+        }
+        if (minValue>elem) {
+          minValue=elem;
+        }
+      }
+      if ((minValue==Infinity) || (maxValue==-Infinity)) {
+        console.log(`ERROR`);
+      }else{
+        console.log(`minValue = ${minValue}\nmaxValue = ${maxValue}`);
+      }
+    }
+    getMinAndMax(arrr);
+
+
+    //task3 check part of array
+    var testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    var userStart = +prompt(`Input start-index to check array elements`);
+    var userEnd = +prompt(`Input end-index to check array elements`);
+    console.log(testArr.slice(userStart, userEnd));
+
+
+    //task4 sort user's array
+    var testSortArr = new Array(10);
+
+    for (let i = 0; i < testSortArr.length; i++) {
+      testSortArr[i] = +prompt(`Input number to element of array with index ${i}:`);
+    }
+    console.log( testSortArr.sort(function (a, b) { return a - b; }) );
+
+
+    //task5 input user's element in the end of array
+    var testPushArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    testPushArr.push(prompt(`Push new element in the end of array`))
+    console.log(testPushArr);
+
+
+    //task6 pre-last element of the array
+    var testSliceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 12];
+    console.log(testSliceArr.slice(-1));
+
+
+    //task7 array of anime series + array of series' scores
+    var anime = ["Cyberpunk 2077", "Another", "Attack on Titan"];
+    var scores = ["10/10", "4/10", "9/10"];
+    for (let i = 0; i < 3; i++) {
+      document.write(anime[i] + " - " + scores[i] + "; ");
+    }
+
+  </script>
+</body>
+</html>

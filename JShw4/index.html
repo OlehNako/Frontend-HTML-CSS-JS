@@ -1,0 +1,149 @@
+﻿<!-- 
+    1. Создать функцию calculate(operand1, operand2, sign), где operand1 и operand2 — два числа, sign — знак арифметической операции.
+       Функция должна расчитывать результат операции, исходя из переданного ей знака. 
+       Функция должна проверять корректность введенных чисел и знака операции.
+       Все аргументы для функции принять от пользователя.
+
+    2. Создать функцию, возводящую число в степень, число и сама степень вводится пользователем
+    
+    3.  Создать игру "Камень-Ножницы-Бумага".
+        Выбор компьютера определяется строкой:  
+        "var computerChoice = Math.random();
+        alert(computerChoice);".
+        Math.random() выдает произвольное число в промежутке от 0 до 1, на основании этого можно построить принцип выбора решения компьютера.
+
+    4. Напишите функцию, которая возвращает n-е число Фибоначчи. Для решения используйте цикл.
+
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+
+        //task1 calculator
+        var oper1 = +prompt(`Input the first number`);
+        var oper2 = +prompt(`Input the second number`);
+        var sign = prompt(`Input the sign`);
+        if((typeof(oper1)!="number")||(typeof(oper2)!="number")){
+            console.log(`Incorrect number`);
+        }else if ((sign!="+")&&(sign!="-")&&(sign!="*")&&(sign!="/")) {
+            console.log(`Incorrect sign`);
+        }else{
+            alert(calculate(oper1, oper2, sign));
+        }
+        
+        function calculate(operand1, operand2, sign){
+            if (sign=="+") {
+                return 0+operand1+operand2;
+            }
+            if (sign=="-") {
+                return operand1-operand2;
+            }
+            if (sign=="*") {
+                return operand1*operand2;
+            }
+            if (sign=="/") {
+                return operand1/operand2;
+            }
+        }
+
+
+        //task2 pow
+        var userNumber = +prompt(`Input the number`);
+        var userPow = +prompt(`Input the pow`); 
+        alert("Result is: " + powNumber(userNumber, userPow));
+
+        function powNumber(number, pow){
+            var result = number;
+            
+            if(pow>1){
+                var powRe = pow-1;
+                result = result*(powNumber(result, powRe));
+            }
+
+            return result;
+        }
+
+
+        //task3 rock-scissor-paper
+        
+        var userChoice = +prompt(`Make a choice and click "confirm":\n1 - rock,\n2 - scissor,\n3 - paper.`);
+        var computerChoice = Math.round( Math.random()*3+1 );
+        var result;
+
+        switch (userChoice) {
+            case 1: userChoice = "rock";
+                switch (computerChoice) {
+                    case 1: computerChoice = "rock";
+                        result = "DRAW";                  
+                        break;
+                    case 2: computerChoice = "scissor";
+                        result = "YOU WIN";                  
+                        break;
+                    case 3: computerChoice = "paper";
+                        result = "YOU LOSE";                  
+                        break;    
+                    default:
+                        break;
+                }
+                break;
+            case 2: userChoice = "scissor";
+                switch (computerChoice) {
+                    case 1: computerChoice = "rock";
+                        result = "YOU LOSE";                  
+                        break;
+                    case 2: computerChoice = "scissor";
+                        result = "DRAW";                  
+                        break;
+                    case 3: computerChoice = "paper";
+                        result = "YOU WIN";                  
+                        break;    
+                    default:
+                        break;
+                }
+                break;
+            case 3: userChoice = "paper";
+                switch (computerChoice) {
+                    case 1: computerChoice = "rock";
+                        result = "YOU WIN";                  
+                        break;
+                    case 2: computerChoice = "scissor";
+                        result = "YOU LOSE";                  
+                        break;
+                    case 3: computerChoice = "paper";
+                        result = "DRAW";                  
+                        break;    
+                    default: 
+                        break;
+                }
+                break;
+        
+            default: result = "Your choice is wrong, meh";
+                break;
+        }
+
+        alert(`Your choice - ${userChoice}\nComputer choice - ${computerChoice}\nResult of battle - ${result}!`);
+
+
+        //task4 find a number from the Fibonacci Sequence
+
+        var n = +prompt(`Now I will find an element which you want from the Fibonacci Sequence. \nInput a number of element.`);
+        alert(`Your number is ` + findFromFibonacci(n));
+
+        function findFromFibonacci(number) {
+            var numb1 = 0;
+            var numb2 = 1;
+            for (let i = 1; i <n ; i++) {
+                var newNumb = numb1+numb2;
+                numb1 = numb2;
+                numb2 = newNumb;
+            }
+            return numb2;
+        }
+
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿<!-- 
+    1. По координатам двух точек, которые вводит пользователь, определить уравнение прямой, проходящей через эти точки.
+    Общий вид уравнения: y = kx + b; где k = (y1 - y2) / (x1 - x2), b = y2 - k*x2.
+    
+    2. Обменять значения двух переменных, используя третью (буферную) переменную.
+    
+    3. Объявите две переменные: admin и name. Запишите в name строку "Василий". Замените значение из name в admin. Выведите admin.
+    
+    4. Получить от пользователя данные о пользователе: имя, фамилию, возраст. Обработать их и вывести на экран.
+    
+    5. Запросите у пользователя его возраст, после чего выведите на экран модальное окно с вопросом: "Ваш возраст ...(введеное пользователем число) лет?". Далее в зависимости от выбора пользователя выводится модальное окно с информацией true или false.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+            
+        //task1
+         var x1 = +prompt('Input x1 value');
+         var y1 = +prompt('Input y1 value');
+         var x2 = +prompt('Input x2 value');
+         var y2 = +prompt('Input y2 value');
+         var k = (y1 - y2) / (x1 - x2);
+         var b = y2 - (k * x2);
+
+         console.log(`k = ${k}`);
+         console.log(`b = ${b}`);
+         console.log(`y = ${k}x + ${b}`);
+
+
+        //task2
+         var simulacr = k;
+
+         k = b;
+         b = simulacr;
+
+         console.log(`k and b after rotation:`);
+         console.log(`k = ${k}`);
+         console.log(`b = ${b}`);
+
+
+        //task3
+         var admin;
+         var name = "Василий";
+
+         admin = name;
+
+         console.log(admin);
+
+    
+        //task4
+         var userName = prompt(`What is your name?`);
+         var userLastName = prompt(`What is your last name?`);
+         var userAge = +prompt(`How old are you?`);
+
+         document.write(`You are ${userName} ${userLastName} and you are ${userAge} years old.`);
+
+
+        //task5
+        var userAgeCheck = +prompt(`How old are you?`);
+        var approveUserAge = confirm(`Are you really ${userAgeCheck} years old?`);
+        alert(`You are ${userAgeCheck} years old and it's ${approveUserAge}.`);
+
+    </script>
+</head>
+<body>
+</body>
+</html>

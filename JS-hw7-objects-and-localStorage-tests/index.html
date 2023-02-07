@@ -1,0 +1,43 @@
+
+<!--Создать массив, который будет хранить в себе информацию о сотрудниках предприятия. Каждый элемент масива — объект,
+       содержащий свойства: name, sName, age, occupation, и метод show, который выводит всю информацию о пользователе.
+       Реализовать заполнение массива пользователем. По окончанию заполнения — вывести информацию о сотрудниках.
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JShw07 Nakonechnyi</title>
+</head>
+<body>
+    
+
+    <script>
+        const employers = [];
+
+        for (let i = 0; i < Infinity; i++) {
+            if(!confirm('Do you want to add employee?')){
+                break;
+            }
+            employers[i] = {
+            name : prompt('name'),
+            sName : prompt('sName'),
+            age : +prompt('age'),
+            occupation : prompt('occupation'),
+            show : function() {
+                    document.write(`${this.name} ${this.age} is our ${this.age} years old ${this.occupation} <br>`);
+                }
+            };
+            employers[i].show();
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>
